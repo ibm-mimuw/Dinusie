@@ -1,4 +1,4 @@
-mport random
+import random
 def random_listy(a):
     # w liscie ans beda docelowe listy (krotki), i pozniej tworzymy kazda liste o odpowiedniej dlugosci za pomoca randint, które
     # zwraca losowa liczbe w danym zakresie
