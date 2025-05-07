@@ -1,9 +1,11 @@
 def liczba_unikalnych(a, b):
-    i, j = 0, 0
-    poprzedni = None
+    n = len(a)
+    m = len(b)
+    i = j = 0
     licznik = 0
+    poprzedni = None
 
-    while i < len(a) and j < len(b):
+    while i < n and j < m:
         if a[i] < b[j]:
             if a[i] != poprzedni:
                 licznik += 1
@@ -14,6 +16,27 @@ def liczba_unikalnych(a, b):
                 licznik += 1
                 poprzedni = b[j]
             j += 1
-        else:  # a[i] == b[j]
+        else:  # równe elementy
             if a[i] != poprzedni:
                 licznik += 1
+                poprzedni = a[i]
+            i += 1
+            j += 1
+
+    while i < n:
+        if a[i] != poprzedni:
+            licznik += 1
+            poprzedni = a[i]
+        i += 1
+
+    while j < m:
+        if b[j] != poprzedni:
+            licznik += 1
+            poprzedni = b[j]
+        j += 1
+
+    return licznik
+
+a = [1, 2, 2, 3, 5]
+b = [2, 4, 5, 6]
+print(liczba_unikalnych(a, b))
